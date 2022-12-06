@@ -1,0 +1,25 @@
+NASSA is an automated earthquake detection and location method based on the Neighborhood Algorithm and the Source Scanning Algorithm. It can deal with the continuous data with high efficiency and is independent on the phase picking and association.
+
+Installation
+
+Check the Fortran compiler in the system. If the Fortran compiler is Intel Fortran, nothing need to change. If the Fortran compiler is GFortran, 'FC' should be changed to 'gfortran' and 'Flags' should be changed to '-fopenmp'. Then
+
+make
+
+some *.o and an executable file 'nassa' have been generated.
+
+export PATH=[the path of nassa]:$PATH
+ 
+Running
+1, Data preprocessing
+The continuous waveform data should be stored in a directory which name is the time of the begining of the seismogram. The name of each station's seismogram is consisted of [station name].[ENZ].sac. Then the phase probability curve is obtained by
+
+sh phasepick.sh [data directory]
+
+The phase probability curve will be stored in [data directory]/probs/
+
+2, Detection and Location
+Make a directory 'outfig' in the data directory to store results. Then
+
+python prepare.py [data directory] [npts of data] [sampling rate] 
+

@@ -342,7 +342,7 @@ if __name__ == '__main__':
     
     tmp = ddir.split('/')[0].split('.')
     tb = tmp[0] + '-' + tmp[1] + '-' + tmp[2] + 'T' + tmp[3] + ':' + tmp[4] + ':' + tmp[5]
-    tbeg = UTCDateTime(tb) - 100
+    tbeg = UTCDateTime(tb)
     print(tb)
     
     nst, stnm, stcor, vmodel = load_st(ddir , stfnm)
